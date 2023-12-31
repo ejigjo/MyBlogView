@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:"/travelBlog/",
   plugins: [
     vue(),
   ],
@@ -22,5 +23,5 @@ export default defineConfig({
         rewrite:(path)=>path.replace(/^\/api/,'')
       }
     }
-  }
+  },
 })
