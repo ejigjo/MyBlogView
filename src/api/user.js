@@ -33,3 +33,9 @@ export const userInfoUpdateService = (userInfoData)=>{
 export const userUpdatePwdService = (rePasswordData)=>{
     return request.patch('/user/updatePwd',rePasswordData) 
 }
+//上傳/修改用戶頭像
+export const userAvatarUpdateService = (avatarUrl)=>{
+    const params = new URLSearchParams();
+    params.append('avatarUrl',avatarUrl)
+    return request.patch('/user/updateAvatar',params)
+}

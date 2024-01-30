@@ -17,6 +17,21 @@ const uploadSuccess = (result)=>{
 }
 
 
+import {userAvatarUpdateService} from '@/api/user.js'
+import {ElMessage} from 'element-plus'
+
+//頭像修改
+const updateAvatar = async ()=>{
+    //呼叫介面
+    let result = await userAvatarUpdateService(imgUrl.value);
+
+    ElMessage.success(result.msg? result.msg:'修改成功')
+
+    //修改pinia中的數據
+    userInfoStore.info.userPic = imgUrl.value
+}
+
+
 </script>
 
 <template>
@@ -45,7 +60,7 @@ const uploadSuccess = (result)=>{
                  <el-button type="primary" :icon="Plus" size="large" @click="uploadRef.$el.querySelector('input').click()">
                      選擇圖片
                  </el-button>
-                 <el-button type="success" :icon="Upload" size="large">
+                 <el-button type="success" :icon="Upload" size="large" @click="updateAvatar">
                      上傳頭像
                  </el-button>
              </el-col>

@@ -36,18 +36,23 @@ instance.interceptors.response.use(
         if (result.data.code === 0) {
             return result.data;
         }
-        ElMessage.error(result.data.msg ? result.data.msg : '服務異常')
+        if (result.data.code === 1) {
+            console.log('Error message from server:', result.data.message);  // 添加這行
+            ElMessage.error(result.data.message);
+            return Promise.reject(result.data);
+        }
+        ElMessage.error('服務異常');
         return Promise.reject(result.data);
     },
-
     err => {
+        console.error('Error in response interceptor:', err);  // 添加這行
         if (err.response.status === 401) {
-            ElMessage.error('請先登錄')
-            router.push('/login')
+            ElMessage.error('請先登錄');
+            router.push('/login');
         }
 
-        ElMessage.error('服務異常')
-        return Promise.reject(err);//非同步的狀態轉換成失敗的狀態
+        ElMessage.error('服務異常');
+        return Promise.reject(err);
     }
 )
 

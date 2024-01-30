@@ -114,7 +114,7 @@ const handleCommand = (command) => {
         <el-container>
             <!-- 頭部區域 -->
             <el-header>
-                <div>程式設計師：<strong>{{ userInfoStore.info.nickname }}</strong></div>
+                <div>Blog使用者：<strong>{{ userInfoStore.info.nickname }}</strong></div>
                 <el-dropdown placement="bottom-end" @command="handleCommand">
                     <span class="el-dropdown__box">
                         <el-avatar :src="userInfoStore.info.userPic ? userInfoStore.info.userPic : avatar" />
@@ -145,7 +145,7 @@ const handleCommand = (command) => {
 <style lang="scss" scoped>
 .layout-container {
     height: 100vh;
-    background-color: #85858b;
+    background-color: #ffffff;
 
     .el-aside {
         background-color: #202022;
@@ -161,7 +161,7 @@ const handleCommand = (command) => {
     }
 
     .el-header {
-        background-color: #85858b;
+        background-color: #ffffff;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -171,7 +171,7 @@ const handleCommand = (command) => {
             align-items: center;
 
             .el-icon {
-                color: #999;
+                color: #ffffff;
                 margin-left: 10px;
             }
 
@@ -187,7 +187,7 @@ const handleCommand = (command) => {
         align-items: center;
         justify-content: center;
         font-size: 14px;
-        background-color: #85858b;
+        background-color: #ffffff;
     }
 }
 </style>
